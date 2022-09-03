@@ -1,0 +1,52 @@
+---
+layout: "base.html"
+title: "a new title"
+---
+
+<h2>The base page using base html</h2>
+
+<div class="box box-yellow-light spaced">Following are examples of using _data</div>
+<p>
+  <!-- This is orange:  -->
+  {{ something.name}}
+</p>
+ 
+<p>
+  <!-- this outputs: orange, purple -->
+  {{ things[0].name }}, {{ things[1].name }}
+</p>
+<!-- for loop in liquid -->
+<ul class="normal spaced">
+  {% for thing in things %}
+  <li>{{ thing.name }}</li>
+  {% endfor %}
+</ul>
+
+<p>
+  <!-- this outputs: sunny orange, dark purple -->
+  {{ fewthings.orange }} - {{ fewthings.purple }}
+</p>
+<!-- for loop in liquid, with key-value -->
+<ul class="normal spaced">
+  {% for thing in fewthings %}
+  <!-- first element is key, second is value -->
+  <li>{{ thing[0] }}: {{ thing[1] }}</li>
+  {% endfor %}
+</ul>
+<hr>
+
+<div class="box box-green-light">Loop through /loop generated files, and display exceprt region</div>
+<ul class="normal">
+{% for thing in things %}
+  <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+  <li {% if page.url == pagination.hrefs[forloop.index0] %}class="selected"{% endif %}>
+    <a href="/loop/{{thing.name | slugify }}">{{ thing.name }}</a>
+    <div class="box">
+    {% include './_data/things/{{thing.name | slugify }}.html', region: 'excerpt' %}
+    </div>
+  </li>
+{% endfor %}
+</ul>
+
+<!-- including a file in liquid -->
+<!-- {% #include './filelocation/file.html' %} -->

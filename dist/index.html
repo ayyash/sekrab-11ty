@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- title is a variable that needs to be set in page -->
+    <title>a new title | Base 11ty Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shut@6/dist/css/sh.min.css">
+    <link rel="stylesheet" href="/assets/styles.css"> 
+  </head>
+  <body> 
+    <div class="page">
+      <div class="container">
+
+        <h1><a href="/">Home</a></h1>
+        <!-- here is the tag that passes the content  -->
+        
+<h2>The base page using base html</h2>
+
+<div class="box box-yellow-light spaced">Following are examples of using _data</div>
+<p>
+  <!-- This is orange:  -->
+  orange
+</p>
+ 
+<p>
+  <!-- this outputs: orange, purple -->
+  orange, purple
+</p>
+<!-- for loop in liquid -->
+<ul class="normal spaced">
+  
+  <li>orange</li>
+  
+  <li>purple</li>
+  
+</ul>
+
+<p>
+  <!-- this outputs: sunny orange, dark purple -->
+  sunny orange - dark purple
+</p>
+<!-- for loop in liquid, with key-value -->
+<ul class="normal spaced">
+  
+  <!-- first element is key, second is value -->
+  <li>orange: sunny orange</li>
+  
+  <!-- first element is key, second is value -->
+  <li>purple: dark purple</li>
+  
+</ul>
+<hr>
+
+<div class="box box-green-light">Loop through /loop generated files, and display exceprt region</div>
+<ul class="normal">
+
+  <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+  <li >
+    <a href="/loop/orange">orange</a>
+    <div class="box">
+    
+    Here is a short discription of orange
+
+  
+
+
+    </div>
+  </li>
+
+  <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+  <li >
+    <a href="/loop/purple">purple</a>
+    <div class="box">
+    
+    Here is a short discription of purple
+  
+
+    </div>
+  </li>
+
+</ul>
+
+<!-- including a file in liquid -->
+<!--  -->
+
+    
+      </div>
+    </div>
+  <div class="box box-grey-light">
+    <div class="page">
+      <div class="container">
+       
+        <!-- loop through _data/things array -->
+        <h4>List all things</h4>
+        <div class="red">
+            The following links to `/loop' pages, created using 
+            11ty <code>pagination</code>
+        </div>
+        <ul>
+          
+            <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+            <li >
+              <a href="/loop/orange">orange</a>
+            </li>
+          
+            <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+            <li >
+              <a href="/loop/purple">purple</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

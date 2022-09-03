@@ -1,0 +1,25 @@
+---
+layout: base.html
+---
+
+<div class="spaced">
+  <!-- the color variable is fed from pages using this template -->
+  Here is the details of {{ color }}
+</div>
+
+{{ content }}
+
+<div class="box box-white">
+  <h5>List of all colors</h5>
+  <span class="red">The following link to html pages,
+  created by 11ty <code>tags</code> and <code>collections</code></span>
+  <!-- loop through similar tags in collections -->
+  <ul>
+    {% for item in collections.colors %}
+    <!-- page.url and item.url are provided by 11ty -->
+    <li {% if page.url == item.url %}class="selected"{% endif %}>
+      <a href="{{item.url}}">{{ item.data.color }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

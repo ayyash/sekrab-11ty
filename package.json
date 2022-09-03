@@ -1,0 +1,19 @@
+{
+  "name": "11tyseed",
+  "version": "1",
+  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "scripts": {
+    "build": "eleventy --config=.distconfig.js",
+    "watch": "eleventy --watch",
+    "start": "eleventy --serve"
+  },
+  "author": {
+    "name": "Ayyash",
+    "email": "amal@ayyash.tech",
+    "url": "https://ayyash.tech/"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2"
+  }
+}

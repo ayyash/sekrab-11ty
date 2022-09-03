@@ -1,0 +1,32 @@
+---
+layout: color.html
+pagination:
+  data: things
+  size: 1
+  alias: thing
+permalink: "loop/{{ thing.name | slugify }}/"
+eleventyComputed:
+  title: "{{thing.name}}"
+  color: "{{thing.name}}"
+---
+
+<!-- this is similar to using tags in individual files, but less fragmented as it uses _data/things array -->
+The thing name:
+<h4 class="spaced">{{ thing.name }}</h4>
+
+<!-- incude _data/orange.html as it is, pass variables if you wish -->
+<!-- {% # include './_data/things/{{thing.name | slugify }}.html', theme: 'dark' %} -->
+
+<!-- or create template regions with conditional -->
+{% liquid 
+  assign _slug = thing.name | slugify
+	assign _filepath = './_data/things/' | append: _slug  | append: '.html'
+%}
+<article>
+  <header>
+    {% include _filepath, region: 'header' %}
+  </header>
+  <div>
+    {% include _filepath, region: 'content', theme: 'dark' %}
+  </div>
+</article>

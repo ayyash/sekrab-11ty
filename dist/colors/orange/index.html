@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- title is a variable that needs to be set in page -->
+    <title>Orange | Base 11ty Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shut@6/dist/css/sh.min.css">
+    <link rel="stylesheet" href="/assets/styles.css"> 
+  </head>
+  <body> 
+    <div class="page">
+      <div class="container">
+
+        <h1><a href="/">Home</a></h1>
+        <!-- here is the tag that passes the content  -->
+        
+<div class="spaced">
+  <!-- the color variable is fed from pages using this template -->
+  Here is the details of orange
+</div>
+
+
+<h1>orange</h1>
+
+
+<div class="box box-white">
+  <h5>List of all colors</h5>
+  <span class="red">The following link to html pages,
+  created by 11ty <code>tags</code> and <code>collections</code></span>
+  <!-- loop through similar tags in collections -->
+  <ul>
+    
+    <!-- page.url and item.url are provided by 11ty -->
+    <li class="selected">
+      <a href="/colors/orange/">orange</a>
+    </li>
+    
+    <!-- page.url and item.url are provided by 11ty -->
+    <li >
+      <a href="/colors/purple/">purple</a>
+    </li>
+    
+  </ul>
+</div>
+
+    
+      </div>
+    </div>
+  <div class="box box-grey-light">
+    <div class="page">
+      <div class="container">
+       
+        <!-- loop through _data/things array -->
+        <h4>List all things</h4>
+        <div class="red">
+            The following links to `/loop' pages, created using 
+            11ty <code>pagination</code>
+        </div>
+        <ul>
+          
+            <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+            <li >
+              <a href="/loop/orange">orange</a>
+            </li>
+          
+            <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+            <li >
+              <a href="/loop/purple">purple</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

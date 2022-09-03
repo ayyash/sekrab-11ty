@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- title is a variable that needs to be set in page -->
+    <title>{{ title }} | Base 11ty Template</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shut@6/dist/css/sh.min.css">
+    <link rel="stylesheet" href="/assets/styles.css"> 
+  </head>
+  <body> 
+    <div class="page">
+      <div class="container">
+
+        <h1><a href="/">Home</a></h1>
+        <!-- here is the tag that passes the content  -->
+        {{ content }}
+    
+      </div>
+    </div>
+  <div class="box box-grey-light">
+    <div class="page">
+      <div class="container">
+       
+        <!-- loop through _data/things array -->
+        <h4>List all things</h4>
+        <div class="red">
+            The following links to `/loop' pages, created using 
+            11ty <code>pagination</code>
+        </div>
+        <ul>
+          {% for thing in things %}
+            <!-- compare page url to pagination.hrefs array, with forloop.index0 in liquid -->
+            <li {% if page.url == pagination.hrefs[forloop.index0] %}class="selected"{% endif %}>
+              <a href="/loop/{{thing.name | slugify }}">{{ thing.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

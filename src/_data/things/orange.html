@@ -1,0 +1,16 @@
+{% case region %}
+  {% when "excerpt" %}
+    Here is a short discription of orange
+
+  {% when "header" %}
+     Header of Orange
+  {% when "content" %}
+  <p>
+    This is a rich HTML content file, that has access to liquid template variables, inside _data folder
+  </p>
+  <p>
+  <strong>Theme = {{ theme }} </strong>
+  </p>
+       
+{% endcase %}
+
